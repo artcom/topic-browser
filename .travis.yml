@@ -9,7 +9,7 @@ deploy:
   api_key:
     secure: EXYMmaNjvvQhdgGRG1sG9AaId0LVlYLbXf5D7BM6GmTtbCQ5LfvsEp3Y+eIQj87Ge9Iet1QDg3URxJjFxZOlUqG73FIprT/na8mGoyXlTzS0O9FibJkmlrJFWzO1QL8dLSRYS+jxOlg6r0u0lU8Wto7zbIxtlKegAQwYznB6cdTD79S52C0131tsw8LFCtZ+ggeqr0CF+NgGNFdR3RSiNXvtSBKJsYs0CsfwNxQjT2l9HpKMQvZ5znA0bE24NjL1c7Bv6jcQVFRRKoLI84u+oCVv7rqEE1ZBe2mef5E+PPphtC8bmsVszYVVYFhR5KglUU8nfvfZeDvvlMg7AhXiX6xGAOwu04ex1sqCIW8pshlNNL4JAMyKGlUsfUQQDAfUbnQdgXpVscuCgJSwemiCWwXi+V+QtLneKkGIGkzjN5kR0g877uBDWTtug1ZrM+fXvara7t/NzK50nYYe3dNepVysueKzoPvkbahlvsWdE6iO92bvkUwWDRlWNVe+RUAhhDuFg52GCslBt95t+MkAdFFVyvZWWTQB+fHcjGyna7kloRZ47M3XSh3TttDwB4qSYF8m2alTf9sKwQjVMdW9xvBwL8hiyLk2MMJsyEiz3SXIL8zyZP8niwRMkcVIK7TvBNhBcG/BN3NCx53NzjZThubz6iqG6Su5CNndMVgn0Ys=
   file_glob: true
-  file: artefacts/*
+  file: artifacts/*
   skip_cleanup: true
   on:
     repo: artcom/topic-browser
