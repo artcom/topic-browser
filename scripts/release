@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -eo pipefail
+
+DIST_DIR="dist"
+ARTEFACTS_DIR="artefacts"
+
+echo "Building"
+npm run build
+
+echo "Packaging"
+mkdir "${ARTEFACTS_DIR}"
+cd "${DIST_DIR}"
+echo {\"branch\": \"$TRAVIS_BRANCH\", \"commit\": \"$TRAVIS_COMMIT\", \"build\": $TRAVIS_BUILD_NUMBER} > dist/build.json
+zip -r -9 "../${ARTEFACTS_DIR}/topic-browser-${TRAVIS_BRANCH}.zip" *
+tar czvf "../${ARTEFACTS_DIR}/topic-browser-${TRAVIS_BRANCH}.tar.gz" *

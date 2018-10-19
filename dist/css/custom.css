@@ -1,0 +1,57 @@
+.topic-row {
+  display: flex;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.topic-row:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.topic-row:hover {
+  background-color: #e0e0e0;
+}
+
+.topic-column {
+  min-width: 7em;
+}
+
+.payload-column {
+  flex-grow: 1;
+  max-width: 87%;
+  padding-top: 0.15em;
+}
+
+.button-column {
+  white-space: nowrap;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.tip-color {
+  color: #b7b7b7;
+}
+
+.invalid {
+  color: red;
+}
+
+.rotate {
+  -webkit-animation:spin 2s linear infinite;
+  -moz-animation:spin 2s linear infinite;
+  animation:spin 2s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+pre {
+  margin: 0;
+  font-size: 14px;
+}
+
+.ace-github {
+  background-color: transparent !important;
+}
