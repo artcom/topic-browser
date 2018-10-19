@@ -36,7 +36,7 @@ async function render() {
   ReactDOM.render(
     <div>
       <Provider store={ store }>
-        <div className="container-fixed">
+        <div>
           <TopicTitle />
           <TopicData mqttClient={ mqttClient } />
         </div>

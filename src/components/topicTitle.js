@@ -7,7 +7,7 @@ import { levelsToTopic, topicToLevels } from "../topic"
 function TopicTitle({ topic }) {
   return (
     <div className="row">
-      <h3 className="cluster text-ellipsis">
+      <h3>
         { renderTopic(topic) }
       </h3>
     </div>

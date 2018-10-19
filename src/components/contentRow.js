@@ -14,9 +14,9 @@ export default function ContentRow(props) {
   const [payload, button] = renderPayloadAndButtons(props)
 
   return (
-    <li className="content-list-item topic-row" key={ props.topic }>
+    <li className="topic-row" key={ props.topic }>
       <div className="topic-column">{ props.name }</div>
-      <div className="payload-column offset-left-1 offset-right-1">{ payload }</div>
+      <div className="payload-column">{ payload }</div>
       <div className="button-column text-right">{ button }</div>
     </li>
   )
@@ -106,7 +106,7 @@ function getPrettyPayload(payload) {
 
 function renderDeleteButton(topic, dispatch) {
   return (
-    <div className="icon icon-cancel pointer" onClick={ () => dispatch(deleteTopic(topic)) }>
+    <div className="pointer" onClick={ () => dispatch(deleteTopic(topic)) }>
       X
     </div>
   )
@@ -121,9 +121,9 @@ function renderConfirmDeletionButtons(topic, unpublishTopic, mqttClient, dispatc
 }
 
 function renderDeleting() {
-  return <i className="icon icon-error rotate" />
+  return <i className="rotate" />
 }
 
 function renderPublishing() {
-  return <i className="icon icon-synchronize rotate" />
+  return <i className="rotate" />
 }

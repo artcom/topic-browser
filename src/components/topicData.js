@@ -18,7 +18,7 @@ function TopicData(props) {
     return (
       <div>
         <div className="row">
-          <div className="col-12">
+          <div>
             <RetainedTopicData
               topicData={ props.topicData }
               topicToDelete={ props.topicToDelete }

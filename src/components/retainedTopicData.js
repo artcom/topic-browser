@@ -14,7 +14,7 @@ import {
 
 export default function RetainedTopicData(props) {
   return (
-    <ul className="content-list">
+    <ul>
       { renderPayloadRow(props) }
       { renderSubTopicRows(props) }
       { renderNewSubtopicRow(props) }

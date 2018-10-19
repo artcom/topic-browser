@@ -15,7 +15,7 @@ function renderEditRow(parentTopic, data, onPublish, onCancel, onCreate) {
 
   return (
     <li
-      className="content-list-item topic-row"
+      className="topic-row"
       onKeyDown={ e => onKeyDown(e, data, onPublish, onCancel) }>
       <div className="topic-column">
         <input
@@ -25,13 +25,13 @@ function renderEditRow(parentTopic, data, onPublish, onCancel, onCreate) {
             event => onCreate(getTopic(parentTopic, event.target.value), data.payload)
           } />
       </div>
-      <div className="payload-column offset-left-1 offset-right-1">
+      <div className="payload-column">
         <Editor
           name="newTopic"
           value={ data.payload }
           onChange={ value => onCreate(data.topic, value) } />
       </div>
-      <div className="button-column text-right">
+      <div className="button-column">
         <ConfirmationButtons
           onConfirm={ () => onPublish(data.topic, data.payload) }
           onCancel={ onCancel } />
@@ -49,9 +49,9 @@ function focusTopicInput(input, data) {
 
 function renderAddRow(parentTopic, onCreate) {
   return (
-    <li className="content-list-item topic-row">
+    <li className="topic-row">
       <div
-        className="icon icon-add pointer"
+        className="pointer"
         onClick={ () => onCreate(getTopic(parentTopic, ""), "") }>
         +
       </div>
