@@ -2,4 +2,6 @@ node_modules
 npm-debug.log
 dist/main.js
 dist/main.js.map
-.config.json
+dist/config.json
+dist/build.json
+artifacts
