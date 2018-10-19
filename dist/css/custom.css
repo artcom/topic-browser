@@ -1,3 +1,21 @@
+* {
+ font-family: arial, sans-serif;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff8b60;
+}
+a:active {
+  color: #ff8b99;
+}
+
+
+
 .topic-row {
   display: flex;
   padding-top: 8px;
