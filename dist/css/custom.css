@@ -1,3 +1,4 @@
+
 * {
  font-family: arial, sans-serif;
 }
@@ -14,6 +15,9 @@ a:active {
   color: #ff8b99;
 }
 
+.container-fixed {
+  margin: 50px;
+}
 
 
 .topic-row {
