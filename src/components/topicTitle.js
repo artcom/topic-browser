@@ -16,7 +16,8 @@ function TopicTitle({ topic }) {
 
 function renderTopic(topic) {
   const root =
-    <TopicLink topic="" key="root">☉
+    <TopicLink topic="" key="root">
+      <div className="icon container-left icon-home" />
     </TopicLink>
 
   const levels = topicToLevels(topic)

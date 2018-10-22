@@ -69,6 +69,11 @@ a:active {
   display: inline-block;
   vertical-align: middle;
 }
+
+.icon-home:before {
+  content: '☉'
+}
+
 .icon-load:before {
   content: '⧗'
 }
