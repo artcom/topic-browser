@@ -8,6 +8,7 @@ a {
   text-decoration: none;
 }
 
+
 a:hover {
   color: #ff8b60;
 }
@@ -40,6 +41,7 @@ a:active {
 
 .topic-column {
   min-width: 7em;
+  margin-left: 10px;
 }
 
 .payload-column {
