@@ -52,8 +52,9 @@ a:active {
   cursor: pointer;
 }
 
-.tip-color {
+.tip {
   color: #b7b7b7;
+  margin-left: 20px;
 }
 
 .invalid {
