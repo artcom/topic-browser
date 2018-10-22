@@ -56,6 +56,7 @@ a:active {
 
 .pointer {
   cursor: pointer;
+  margin-left: 10px;
 }
 
 .tip {
