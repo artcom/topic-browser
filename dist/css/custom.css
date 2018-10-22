@@ -10,17 +10,17 @@ a {
 
 
 a:hover {
-  color: #ff8b60;
+  font-weight: bold;
 }
 a:active {
-  color: #ff8b99;
+  font-weight: bold;
 }
 
 .pointer:hover {
-  color: #ff8b60;
+  color: #ffffff;
 }
 .pointer:active {
-  color: #ff8b99;
+  color: #ffffff;
 }
 
 .container-fixed {
@@ -39,11 +39,11 @@ a:active {
 }
 
 .topic-row:nth-child(odd) {
-  background-color: #f2f2f2;
+  background-color: #e3eff2;
 }
 
 .topic-row:hover {
-  background-color: #e0e0e0;
+  background-color: #c7e6ed;
 }
 
 .topic-column {
