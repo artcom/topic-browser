@@ -16,6 +16,13 @@ a:active {
   color: #ff8b99;
 }
 
+.pointer:hover {
+  color: #ff8b60;
+}
+.pointer:active {
+  color: #ff8b99;
+}
+
 .container-fixed {
   margin: 50px;
 }
