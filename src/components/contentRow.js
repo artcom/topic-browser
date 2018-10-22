@@ -106,9 +106,7 @@ function getPrettyPayload(payload) {
 
 function renderDeleteButton(topic, dispatch) {
   return (
-    <div className="pointer" onClick={ () => dispatch(deleteTopic(topic)) }>
-      X
-    </div>
+    <div className="pointer" onClick={ () => dispatch(deleteTopic(topic)) }>✖</div>
   )
 }
 
