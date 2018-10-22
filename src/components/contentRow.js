@@ -119,9 +119,9 @@ function renderConfirmDeletionButtons(topic, unpublishTopic, mqttClient, dispatc
 }
 
 function renderDeleting() {
-  return <i className="rotate" />
+  return <i className="icon icon-load rotate" />
 }
 
 function renderPublishing() {
-  return <i className="rotate" />
+  return <i className="icon icon-load rotate" />
 }
