@@ -7,9 +7,9 @@ import { levelsToTopic, topicToLevels } from "../topic"
 function TopicTitle({ topic }) {
   return (
     <div className="row">
-      <h3>
+      <h4>
         { renderTopic(topic) }
-      </h3>
+      </h4>
     </div>
   )
 }
