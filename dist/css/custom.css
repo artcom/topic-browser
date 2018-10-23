@@ -1,9 +1,6 @@
 
-* {
- font-family: arial, sans-serif;
-}
-
 a {
+  font-family: "arial";
   color: #000000;
   text-decoration: none;
 }
