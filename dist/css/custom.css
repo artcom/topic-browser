@@ -86,19 +86,23 @@ a:active {
 }
 
 .icon-home:before {
-  content: '☉'
+  content: '⌂';
+  position: relative;
+  top:-3px;
+  font-size: 30px;
+
 }
 
 .icon-load:before {
-  content: '⧗'
+  content: '⧗';
 }
 
 .icon-cancel:before {
-  content: '✖'
+  content: '✖';
 }
 
 .icon-confirm:before {
-  content: '✔'
+  content: '✔';
 }
 
 .icon-add:before {
