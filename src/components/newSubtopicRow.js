@@ -51,10 +51,8 @@ function renderAddRow(parentTopic, onCreate) {
   return (
     <li className="topic-row">
       <div
-        className="pointer"
-        onClick={ () => onCreate(getTopic(parentTopic, ""), "") }>
-        +
-      </div>
+        className="pointer icon-add"
+        onClick={ () => onCreate(getTopic(parentTopic, ""), "") } />
     </li>
   )
 }

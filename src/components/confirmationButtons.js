@@ -3,8 +3,8 @@ import React from "react"
 export default function ConfirmationButtons({ onConfirm, onCancel }) {
   return (
     <span>
-      <div className="pointer" onClick={ onCancel }>✖</div>
-      <div className="pointer" onClick={ onConfirm }>✔</div>
+      <div className="pointer icon-cancel" onClick={ onCancel } />
+      <div className="pointer icon-confirm" onClick={ onConfirm } />
     </span>
   )
 }
