@@ -4,13 +4,13 @@ export default function Legend() {
   return (
     <ul className="tip">
       <li>
-        Use <b>double-click</b> to edit <i>payload</i>.
+        Use double-click to edit payload.
       </li>
       <li>
-        <b>[SHIFT]</b> + <b>[ENTER]</b> to publish and <b>[ESC]</b> to cancel.
+        <kbd>&#x21E7;</kbd> + <kbd>&#x23ce;</kbd> to publish and <kbd>esc</kbd> to cancel.
       </li>
       <li>
-        Use <kbd>/</kbd> in the topic field to create subtopics, e.g. <i>foo/bar</i>.
+        Use <kbd>/</kbd> in the topic field to create subtopics, e.g. foo/bar.
       </li>
     </ul>
   )
