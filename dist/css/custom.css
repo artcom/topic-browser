@@ -8,7 +8,6 @@ a {
   text-decoration: none;
 }
 
-
 a:hover {
   font-weight: bold;
 }
@@ -63,8 +62,6 @@ a:active {
 
 .pointer {
   cursor: pointer;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 .tip {
@@ -98,11 +95,12 @@ a:active {
 }
 
 .icon-add:before {
-  content: '+'
+  content: '+';
+  margin-left: 10px;
 }
 
 .icon-delete:before {
-  content:'✕'
+  content: '✕'
 }
 
 .rotate {
