@@ -27,6 +27,10 @@ a:active {
   margin-left: 40px;
 }
 
+.icon-right {
+  margin-right: 10px;
+}
+
 
 .topic-row {
   display: flex;
