@@ -103,7 +103,8 @@ a:active {
 }
 
 .icon-delete:before {
-  content: '✕'
+  content: '✕';
+  margin-right: 10px;
 }
 
 .rotate {
