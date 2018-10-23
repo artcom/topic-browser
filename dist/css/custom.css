@@ -23,6 +23,23 @@ a:active {
   margin: 50px;
 }
 
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.row:before, .row:after {
+  content: ' ';
+  display: table;
+}
+.row:after {
+  clear: both;
+}
+.row .row {
+  margin-left: -12px;
+  margin-right: -12px;
+}
+
+
 .container-left {
   margin-left: 40px;
 }
@@ -30,7 +47,6 @@ a:active {
 .icon-right {
   margin-right: 10px;
 }
-
 
 .topic-row {
   display: flex;
