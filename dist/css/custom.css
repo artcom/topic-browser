@@ -28,6 +28,10 @@ a:active {
   margin: 50px;
 }
 
+.topic-title-headline{
+  font-size: 18px;
+}
+
 .row {
   margin-left: 0;
   margin-right: 0;
