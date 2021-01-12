@@ -13,6 +13,7 @@
     "node": "12.13.0"
   },
   "dependencies": {
+    "@artcom/mqtt-topping": "^3.0.2",
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
     "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
