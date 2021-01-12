@@ -34,7 +34,6 @@
     "lodash.omit": "^4.5.0",
     "lodash.sortby": "^4.7.0",
     "lodash.trimstart": "^4.5.1",
-    "mqtt-topping": "^0.8.13",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-redux": "^7.2.2",

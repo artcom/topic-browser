@@ -4,7 +4,6 @@ import { createLogger } from "redux-logger"
 import { applyMiddleware, createStore, combineReducers } from "redux"
 import thunk from "redux-thunk"
 import { Provider } from "react-redux"
-// import topping from "mqtt-topping"
 import { connectAsync, HttpClient } from "@artcom/mqtt-topping"
 
 import TopicTitle from "./components/topicTitle"
@@ -23,7 +22,6 @@ async function render() {
   const store = createStoreWithMiddleWare(combineReducers(reducers))
 
   const clientId = `topicBrowser-${Math.random().toString(16).substr(2, 8)}`
-  // const mqttClient = topping.connect(wsBrokerUri, httpBrokerUri, { clientId })
 
   const wsMqttClient = await connectAsync(wsBrokerUri, { clientId })
   const httpMqttClient = new HttpClient(httpBrokerUri)
