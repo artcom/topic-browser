@@ -1,5 +1,6 @@
 import sortBy from "lodash.sortby"
 import trimStart from "lodash.trimstart"
+import { unpublishRecursively } from "@artcom/mqtt-topping"
 
 import * as types from "./actionTypes"
 
@@ -87,7 +88,7 @@ export function unpublishTopic(topic, mqttClient) {
 export function unpublishTopicRecursively(topic, mqttClient) {
   return (dispatch, getState) => {
     dispatch(startTopicDeletion(topic))
-    return mqttClient.wsClient.unpublishRecursively(topic)
+    return unpublishRecursively(mqttClient.wsClient, mqttClient.httpClient, topic)
       .then(() => dispatch(fetchRetainedTopic(getState().topic, mqttClient)))
       .then(() => dispatch(finishTopicDeletion(topic)))
       .catch(error => {
