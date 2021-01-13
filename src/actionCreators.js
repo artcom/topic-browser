@@ -40,7 +40,7 @@ function fetchRoot(mqttClient) {
 }
 
 function fetchTopic(topic, mqttClient) {
-  return mqttClient.queryBatch({ topic, depth: 1, parseJson: false })
+  return mqttClient.query({ topic, depth: 1, parseJson: false })
 }
 
 export function requestRetainedTopic(topic) {
