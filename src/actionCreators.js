@@ -21,7 +21,7 @@ export function fetchRetainedTopic(topic, mqttClient) {
 }
 
 function fetchRoot(mqttClient) {
-  return mqttClient.queryBatch([
+  return mqttClient.httpClient.queryBatch([
     { topic: null, depth: 1, parseJson: false },
     { topic: "", depth: 1, parseJson: false }
   ]).then(([root, slashRoot]) => {
@@ -40,7 +40,7 @@ function fetchRoot(mqttClient) {
 }
 
 function fetchTopic(topic, mqttClient) {
-  return mqttClient.query({ topic, depth: 1, parseJson: false })
+  return mqttClient.httpClient.query({ topic, depth: 1, parseJson: false })
 }
 
 export function requestRetainedTopic(topic) {
@@ -74,7 +74,7 @@ export function cancelTopicDeletion(topic) {
 export function unpublishTopic(topic, mqttClient) {
   return (dispatch, getState) => {
     dispatch(startTopicDeletion(topic))
-    return mqttClient.unpublish(topic)
+    return mqttClient.wsClient.unpublish(topic)
       .then(() => dispatch(fetchRetainedTopic(getState().topic, mqttClient)))
       .then(() => dispatch(finishTopicDeletion(topic)))
       .catch(error => {
@@ -87,7 +87,7 @@ export function unpublishTopic(topic, mqttClient) {
 export function unpublishTopicRecursively(topic, mqttClient) {
   return (dispatch, getState) => {
     dispatch(startTopicDeletion(topic))
-    return mqttClient.unpublishRecursively(topic)
+    return mqttClient.wsClient.unpublishRecursively(topic)
       .then(() => dispatch(fetchRetainedTopic(getState().topic, mqttClient)))
       .then(() => dispatch(finishTopicDeletion(topic)))
       .catch(error => {
@@ -143,7 +143,7 @@ export function cancelTopicCreation() {
 export function publishTopic(topic, payload, mqttClient) {
   return (dispatch, getState) => {
     dispatch(startTopicPublication(topic, payload))
-    return mqttClient.publish(topic, payload, { stringifyJson: false })
+    return mqttClient.wsClient.publish(topic, payload, { stringifyJson: false })
       .then(() => dispatch(fetchRetainedTopic(getState().topic, mqttClient)))
       .then(() => dispatch(finishTopicPublication(topic)))
       .catch(error => {
