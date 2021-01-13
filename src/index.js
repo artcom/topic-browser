@@ -14,17 +14,26 @@ import * as reducers from "./reducers"
 import { hashToTopic } from "./topic"
 
 async function render() {
-  const { wsBrokerUri, httpBrokerUri } = await loadConfig()
+  const { wsBrokerUri, httpBrokerUri, username, password } = await loadConfig()
   console.log(wsBrokerUri, httpBrokerUri)
 
   const logger = createLogger()
   const createStoreWithMiddleWare = applyMiddleware(thunk, logger)(createStore)
   const store = createStoreWithMiddleWare(combineReducers(reducers))
 
-  const clientId = `topicBrowser-${Math.random().toString(16).substr(2, 8)}`
-  const mqttClient = topping.connect(wsBrokerUri, httpBrokerUri, { clientId })
+  const clientOptions = {
+    clientId: `topicBrowser-${Math.random().toString(16).substr(2, 8)}`,
+    username,
+    password,
+    keepalive: 60
+  }
 
-  mqttClient.on("connect", () => console.log({ wsBrokerUri, clientId }, "Connected with broker"))
+  const mqttClient = topping.connect(wsBrokerUri, httpBrokerUri, clientOptions)
+
+  mqttClient.on("connect", () => {
+    console.log(wsBrokerUri, clientOptions.clientId, "Connected with broker")
+    console.log("logged in as:", username)
+  })
 
   updateTopic()
   window.addEventListener("hashchange", updateTopic)
