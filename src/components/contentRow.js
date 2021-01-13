@@ -23,17 +23,17 @@ export default function ContentRow(props) {
 }
 
 function renderPayloadAndButtons(props) {
-  const { mqttClient, dispatch } = props
+  const { mqttClients, dispatch } = props
 
   if (props.toEdit) {
     return [
-      renderEditor(props.toEdit.topic, props.toEdit.payload, mqttClient, dispatch),
-      renderEditorButtons(props.toEdit.topic, props.toEdit.payload, mqttClient, dispatch)
+      renderEditor(props.toEdit.topic, props.toEdit.payload, mqttClients, dispatch),
+      renderEditorButtons(props.toEdit.topic, props.toEdit.payload, mqttClients, dispatch)
     ]
   } else if (props.toDelete) {
     return [
       renderPayload(props.topic, props.payload),
-      renderConfirmDeletionButtons(props.topic, props.unpublishTopic, mqttClient, dispatch)
+      renderConfirmDeletionButtons(props.topic, props.unpublishTopic, mqttClients, dispatch)
     ]
   } else if (props.publishing) {
     return [
@@ -53,7 +53,7 @@ function renderPayloadAndButtons(props) {
   }
 }
 
-function renderEditor(topic, payload, mqttClient, dispatch) {
+function renderEditor(topic, payload, mqttClients, dispatch) {
   const prettyPayload = getPrettyPayload(payload)
   return (
     <Editor
@@ -61,15 +61,15 @@ function renderEditor(topic, payload, mqttClient, dispatch) {
       value={ prettyPayload || payload }
       focus
       onChange={ data => dispatch(editPayload(topic, data)) }
-      onConfirm={ () => dispatch(publishTopic(topic, payload, mqttClient)) }
+      onConfirm={ () => dispatch(publishTopic(topic, payload, mqttClients)) }
       onCancel={ () => dispatch(cancelPayloadEditing(topic)) } />
   )
 }
 
-function renderEditorButtons(topic, payload, mqttClient, dispatch) {
+function renderEditorButtons(topic, payload, mqttClients, dispatch) {
   return (
     <ConfirmationButtons
-      onConfirm={ () => dispatch(publishTopic(topic, payload, mqttClient)) }
+      onConfirm={ () => dispatch(publishTopic(topic, payload, mqttClients)) }
       onCancel={ () => dispatch(cancelPayloadEditing(topic)) } />
   )
 }
@@ -110,10 +110,10 @@ function renderDeleteButton(topic, dispatch) {
   )
 }
 
-function renderConfirmDeletionButtons(topic, unpublishTopic, mqttClient, dispatch) {
+function renderConfirmDeletionButtons(topic, unpublishTopic, mqttClients, dispatch) {
   return (
     <ConfirmationButtons
-      onConfirm={ () => dispatch(unpublishTopic(topic, mqttClient)) }
+      onConfirm={ () => dispatch(unpublishTopic(topic, mqttClients)) }
       onCancel={ () => dispatch(cancelTopicDeletion(topic)) } />
   )
 }
