@@ -28,16 +28,7 @@ async function render() {
 
   wsMqttClient.on("connect", () => console.log({ wsBrokerUri, clientId }, "Connected with broker"))
 
-
-  httpMqttClient.query({ topic: "", depth: 1 }).then(results =>
-    console.log(results)
-  )
-
-  httpMqttClient.query([{ topic: "actions", depth: 1 }, { topic: "devices", depth: 1 }]).then(
-    results => console.log(results)
-  )
-
-  // updateTopic()
+  updateTopic()
   window.addEventListener("hashchange", updateTopic)
 
   function updateTopic() {
