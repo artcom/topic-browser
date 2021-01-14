@@ -26,8 +26,6 @@ async function render() {
   const mqttClient = await connectAsync(wsBrokerUri, { clientId })
   const httpClient = new HttpClient(httpBrokerUri)
 
-  // const httpClient = new HttpClient(httpBrokerUri)
-
   mqttClient.on("connect", () =>
     console.log({ wsBrokerUri, clientId }, "Connected with broker"))
 
