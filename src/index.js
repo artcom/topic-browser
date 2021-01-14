@@ -21,13 +21,21 @@ async function render() {
   const createStoreWithMiddleWare = applyMiddleware(thunk, logger)(createStore)
   const store = createStoreWithMiddleWare(combineReducers(reducers))
 
-  const clientId = `topicBrowser-${Math.random().toString(16).substr(2, 8)}`
+  const clientOptions = {
+    clientId: `topicBrowser-${Math.random().toString(16).substr(2, 8)}`,
+    username,
+    password,
+    keepalive: 60
+  }
 
-  const mqttClient = await connectAsync(wsBrokerUri, { clientId })
+  const mqttClient = await connectAsync(wsBrokerUri, clientOptions)
   const httpClient = new HttpClient(httpBrokerUri)
 
-  mqttClient.on("connect", () =>
-    console.log({ wsBrokerUri, clientId }, "Connected with broker"))
+  mqttClient.on("connect", () => {
+    console.log(wsBrokerUri, clientOptions.clientId, "Connected with broker")
+    console.log("logged in as:", username)
+  })
+
 
   updateTopic()
   window.addEventListener("hashchange", updateTopic)
