@@ -4,11 +4,11 @@ import { unpublishRecursively } from "@artcom/mqtt-topping"
 
 import * as types from "./actionTypes"
 
-export function fetchRetainedTopic(topic, mqttClients) {
+export function fetchRetainedTopic(topic, httpClient) {
   return dispatch => {
     dispatch(requestRetainedTopic(topic))
 
-    const fetchTopicData = topic === "" ? fetchRoot(mqttClients) : fetchTopic(topic, mqttClients)
+    const fetchTopicData = topic === "" ? fetchRoot(httpClient) : fetchTopic(topic, httpClient)
 
     return fetchTopicData
       .then(topicData => {
@@ -21,8 +21,8 @@ export function fetchRetainedTopic(topic, mqttClients) {
   }
 }
 
-function fetchRoot(mqttClients) {
-  return mqttClients.httpClient.queryBatch([
+function fetchRoot(httpClient) {
+  return httpClient.queryBatch([
     { topic: null, depth: 1, parseJson: false },
     { topic: "", depth: 1, parseJson: false }
   ]).then(([root, slashRoot]) => {
@@ -40,8 +40,8 @@ function fetchRoot(mqttClients) {
   })
 }
 
-function fetchTopic(topic, mqttClients) {
-  return mqttClients.httpClient.query({ topic, depth: 1, parseJson: false })
+function fetchTopic(topic, httpClient) {
+  return httpClient.query({ topic, depth: 1, parseJson: false })
 }
 
 export function requestRetainedTopic(topic) {
@@ -72,11 +72,11 @@ export function cancelTopicDeletion(topic) {
   }
 }
 
-export function unpublishTopic(topic, mqttClients) {
+export function unpublishTopic(topic, mqttClient, httpClient) {
   return (dispatch, getState) => {
     dispatch(startTopicDeletion(topic))
-    return mqttClients.wsClient.unpublish(topic)
-      .then(() => dispatch(fetchRetainedTopic(getState().topic, mqttClients)))
+    return mqttClient.unpublish(topic)
+      .then(() => dispatch(fetchRetainedTopic(getState().topic, httpClient)))
       .then(() => dispatch(finishTopicDeletion(topic)))
       .catch(error => {
         console.log(error)
@@ -85,11 +85,11 @@ export function unpublishTopic(topic, mqttClients) {
   }
 }
 
-export function unpublishTopicRecursively(topic, mqttClients) {
+export function unpublishTopicRecursively(topic, mqttClient, httpClient) {
   return (dispatch, getState) => {
     dispatch(startTopicDeletion(topic))
-    return unpublishRecursively(mqttClients.wsClient, mqttClients.httpClient, topic)
-      .then(() => dispatch(fetchRetainedTopic(getState().topic, mqttClients)))
+    return unpublishRecursively(mqttClient, httpClient, topic)
+      .then(() => dispatch(fetchRetainedTopic(getState().topic, httpClient)))
       .then(() => dispatch(finishTopicDeletion(topic)))
       .catch(error => {
         console.log(error)
@@ -141,11 +141,11 @@ export function cancelTopicCreation() {
   }
 }
 
-export function publishTopic(topic, payload, mqttClients) {
+export function publishTopic(topic, payload, mqttClient, httpClient) {
   return (dispatch, getState) => {
     dispatch(startTopicPublication(topic, payload))
-    return mqttClients.wsClient.publish(topic, payload, { stringifyJson: false })
-      .then(() => dispatch(fetchRetainedTopic(getState().topic, mqttClients)))
+    return mqttClient.publish(topic, payload, { stringifyJson: false })
+      .then(() => dispatch(fetchRetainedTopic(getState().topic, httpClient)))
       .then(() => dispatch(finishTopicPublication(topic)))
       .catch(error => {
         console.log(error)

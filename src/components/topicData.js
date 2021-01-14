@@ -26,7 +26,8 @@ function TopicData(props) {
               topicToEdit={ props.topicToEdit }
               deleting={ props.deleting }
               publishing={ props.publishing }
-              mqttClients={ props.mqttClients }
+              mqttClient={ props.mqttClient }
+              httpClient={ props.httpClient }
               dispatch={ props.dispatch } />
           </div>
         </div>

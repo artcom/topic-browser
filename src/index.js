@@ -23,21 +23,19 @@ async function render() {
 
   const clientId = `topicBrowser-${Math.random().toString(16).substr(2, 8)}`
 
-  const mqttClients = {
-    wsClient: await connectAsync(wsBrokerUri, { clientId }),
-    httpClient: new HttpClient(httpBrokerUri)
-  }
+  const mqttClient = await connectAsync(wsBrokerUri, { clientId })
+  const httpClient = new HttpClient(httpBrokerUri)
 
   // const httpClient = new HttpClient(httpBrokerUri)
 
-  mqttClients.wsClient.on("connect", () =>
+  mqttClient.on("connect", () =>
     console.log({ wsBrokerUri, clientId }, "Connected with broker"))
 
   updateTopic()
   window.addEventListener("hashchange", updateTopic)
 
   function updateTopic() {
-    store.dispatch(fetchRetainedTopic(hashToTopic(window.location.hash), mqttClients))
+    store.dispatch(fetchRetainedTopic(hashToTopic(window.location.hash), httpClient))
   }
 
   ReactDOM.render(
@@ -45,7 +43,9 @@ async function render() {
       <Provider store={ store }>
         <div className="container-fixed">
           <TopicTitle />
-          <TopicData mqttClients={ mqttClients } />
+          <TopicData
+            mqttClient={ mqttClient }
+            httpClient={ httpClient } />
         </div>
       </Provider>
     </div>,

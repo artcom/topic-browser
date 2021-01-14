@@ -58,7 +58,8 @@ function renderRow(topic, payload, name, unpublishTopic, props) {
       publishing={ props.publishing && props.publishing.topic === topic ? props.publishing : null }
       unpublishTopic={ unpublishTopic }
       dispatch={ props.dispatch }
-      mqttClients={ props.mqttClients } />
+      mqttClient={ props.mqttClient }
+      httpClient={ props.httpClient } />
   )
 }
 
@@ -68,8 +69,8 @@ function renderNewSubtopicRow(props) {
       parentTopic={ props.topicData.topic }
       data={ props.topicToCreate }
       onCreate={ (topic, payload) => props.dispatch(createTopic(topic, payload)) }
-      onPublish={
-        (topic, payload) => props.dispatch(publishTopic(topic, payload, props.mqttClients))
+      onPublish={ (topic, payload) => props.dispatch(
+        publishTopic(topic, payload, props.mqttClient, props.httpClient))
       }
       onCancel={ () => props.dispatch(cancelTopicCreation()) } />
   )
