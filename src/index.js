@@ -14,7 +14,7 @@ import * as reducers from "./reducers"
 import { hashToTopic } from "./topic"
 
 async function render() {
-  const { wsBrokerUri, httpBrokerUri } = await loadConfig()
+  const { wsBrokerUri, httpBrokerUri, username, password } = await loadConfig()
   console.log(wsBrokerUri, httpBrokerUri)
 
   const logger = createLogger()

@@ -5,8 +5,10 @@ This project provides a web frontend for retained topics served by the [HiveMQ R
 ## Local Development Server
 
 ```bash
-export WS_BROKER_URI="<ws_broker_uri>"
-export HTTP_BROKER_URI="<http_broker_uri>"
+WS_BROKER_URI="<ws_broker_uri>"
+HTTP_BROKER_URI="<http_broker_uri>"
+USERNAME="<username>"
+PASSWORD="<password>"
 
 npm install
 npm run watch
@@ -53,7 +55,9 @@ Add a `dist/config.json` file with:
 ```json
 {
   "wsBrokerUri": "<ws_broker_uri>",
-  "httpBrokerUri": "<http_broker_uri>"
+  "httpBrokerUri": "<http_broker_uri>",
+  "username": "<username>",
+  "password": "<password>"
 }
 ```
 

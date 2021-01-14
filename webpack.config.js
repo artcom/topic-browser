@@ -18,7 +18,9 @@ module.exports = (env = {}) => ({
   plugins: [
     new webpack.EnvironmentPlugin({
       HTTP_BROKER_URI: null,
-      WS_BROKER_URI: null
+      WS_BROKER_URI: null,
+      USERNAME: null,
+      PASSWORD: null
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ],
