@@ -28,7 +28,7 @@ function renderPayloadAndButtons(props) {
   if (props.toEdit) {
     return [
       renderEditor(props.toEdit.topic, props.toEdit.payload, mqttClient, httpClient, dispatch),
-      renderEditorButtons(props.toEdit.topic, props.toEdit.payload, mqttClient, dispatch)
+      renderEditorButtons(props.toEdit.topic, props.toEdit.payload, mqttClient, httpClient, dispatch)
     ]
   } else if (props.toDelete) {
     return [
