@@ -1,7 +1,8 @@
 {
   "name": "topic-browser",
   "version": "1.0.8",
-  "private": true,
+  "repository": "artcom/topic-browser",
+  "license": "MIT",
   "scripts": {
     "lint": "eslint src",
     "stats": "webpack --profile --json --env.production > stats.json",
