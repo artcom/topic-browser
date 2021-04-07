@@ -45,7 +45,7 @@ function renderSubTopicRows(props) {
   })
 }
 
-function renderRow(topic, payload, name, unpublishTopic, props) {
+function renderRow(topic, payload, name, unpublish, props) {
   return (
     <ContentRow
       key={ topic }
@@ -56,7 +56,7 @@ function renderRow(topic, payload, name, unpublishTopic, props) {
       toEdit={ props.topicToEdit && props.topicToEdit.topic === topic ? props.topicToEdit : null }
       deleting={ props.deleting === topic }
       publishing={ props.publishing && props.publishing.topic === topic ? props.publishing : null }
-      unpublishTopic={ unpublishTopic }
+      unpublishTopic={ unpublish }
       dispatch={ props.dispatch }
       mqttClient={ props.mqttClient }
       httpClient={ props.httpClient } />
