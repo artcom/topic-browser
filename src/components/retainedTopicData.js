@@ -65,7 +65,7 @@ function renderRow(topic, payload, name, unpublish, props) {
 function renderNewSubtopicRow(props) {
   return (
     <NewSubtopicRow
-      parentTopic={ props.topicData.topic }
+      parentTopic={ props.topicData.topic || "" }
       data={ props.topicToCreate }
       onCreate={ (topic, payload) => props.dispatch(createTopic(topic, payload)) }
       onPublish={ (topic, payload) => props.dispatch(
