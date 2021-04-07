@@ -23,9 +23,9 @@ async function render() {
 
   const clientOptions = {
     clientId: `topicBrowser-${Math.random().toString(16).substr(2, 8)}`,
+    keepalive: 60,
     username,
-    password,
-    keepalive: 60
+    password
   }
 
   const mqttClient = await connectAsync(wsBrokerUri, clientOptions)
@@ -33,9 +33,7 @@ async function render() {
 
   mqttClient.on("connect", () => {
     console.log(wsBrokerUri, clientOptions.clientId, "Connected with broker")
-    console.log("logged in as:", username)
   })
-
 
   updateTopic()
   window.addEventListener("hashchange", updateTopic)
