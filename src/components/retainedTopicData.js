@@ -28,7 +28,6 @@ function renderPayloadRow(props) {
       props.topicData.topic,
       props.topicData.payload,
       "PAYLOAD",
-      true,
       unpublishTopic,
       props
     )
