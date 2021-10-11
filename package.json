@@ -12,18 +12,18 @@
     "watch": "webpack-dev-server --port ${PORT:-8080} -d"
   },
   "engines": {
-    "node": "12.13.0"
+    "node": "14.18.0"
   },
   "dependencies": {
-    "@artcom/mqtt-topping": "^3.0.3",
-    "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.12.10",
-    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "@artcom/mqtt-topping": "^3.1.0",
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-proposal-object-rest-spread": "^7.15.6",
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
     "@babel/polyfill": "^7.12.1",
-    "@babel/preset-env": "^7.12.11",
-    "@babel/preset-react": "^7.12.10",
-    "axios": "^0.21.1",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "axios": "^0.22.0",
     "babel-loader": "^8.2.2",
     "brace": "^0.11.1",
     "eslint": "^6.8.0",
@@ -32,20 +32,20 @@
     "eslint-loader": "^3.0.4",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-react": "^7.22.0",
-    "http-server": "^0.12.3",
+    "http-server": "^13.0.2",
     "lodash.omit": "^4.5.0",
     "lodash.sortby": "^4.7.0",
     "lodash.trimstart": "^4.5.1",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-redux": "^7.2.2",
-    "redux": "^4.0.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.5",
+    "redux": "^4.1.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12"
+    "webpack": "^5.58.1",
+    "webpack-cli": "^4.9.0"
   },
   "devDependencies": {
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^4.3.1"
   }
 }
