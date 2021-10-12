@@ -24,17 +24,18 @@ export default function ContentRow(props) {
 
 function renderPayloadAndButtons(props) {
   const { mqttClient, httpClient, dispatch } = props
+  const { toEdit, toDelete, topic, payload } = props
 
-  if (props.toEdit) {
+  if (toEdit) {
     return [
-      renderEditor(props.toEdit.topic, props.toEdit.payload, mqttClient, httpClient, dispatch),
-      renderEditorButtons(props.toEdit.topic, props.toEdit.payload, mqttClient, httpClient, dispatch)
+      renderEditor(toEdit.topic, toEdit.payload, mqttClient, httpClient, dispatch),
+      renderEditorButtons(toEdit.topic, toEdit.payload, mqttClient, httpClient, dispatch)
     ]
-  } else if (props.toDelete) {
+  } else if (toDelete) {
     return [
-      renderPayload(props.topic, props.payload),
+      renderPayload(topic, payload),
       renderConfirmDeletionButtons(
-        props.topic, props.unpublishTopic, mqttClient, httpClient, dispatch
+        topic, props.unpublishTopic, mqttClient, httpClient, dispatch
       )
     ]
   } else if (props.publishing) {
@@ -44,13 +45,13 @@ function renderPayloadAndButtons(props) {
     ]
   } else if (props.deleting) {
     return [
-      renderPayloadInProgress(props.payload),
+      renderPayloadInProgress(payload),
       renderDeleting()
     ]
   } else {
     return [
-      renderPayload(props.topic, props.payload, dispatch),
-      renderDeleteButton(props.topic, dispatch)
+      renderPayload(topic, payload, dispatch),
+      renderDeleteButton(topic, dispatch)
     ]
   }
 }
