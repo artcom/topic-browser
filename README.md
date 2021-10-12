@@ -50,7 +50,7 @@ npm run build
 
 - Configure
 
-Add a `dist/config.json` file with:
+Add a `public/config.json` file with:
 
 ```json
 {
@@ -63,4 +63,4 @@ Add a `dist/config.json` file with:
 
 - Serve
 
-Serve the `dist` folder.
+Serve the `public` folder.

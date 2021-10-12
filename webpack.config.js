@@ -1,11 +1,8 @@
 /* eslint-disable import/no-commonjs */
-
 const webpack = require("webpack")
-const path = require("path")
 
-module.exports = (env = {}) => ({
-  mode: env.production ? "production" : "development",
-  devtool: env.production ? "source-map" : "eval-source-map",
+module.exports = (env, { mode }) => ({
+  devtool: mode === "development" ? "eval-source-map" : "source-map",
   module: {
     rules: [
       {
@@ -23,10 +20,9 @@ module.exports = (env = {}) => ({
       PASSWORD: null
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
-  ],
-  devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    host: "0.0.0.0",
-    disableHostCheck: true
-  }
+    new webpack.ProvidePlugin({
+      process: "process/browser.js",
+      Buffer: ["buffer", "Buffer"]
+    })
+  ]
 })
