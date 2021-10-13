@@ -1,0 +1,6 @@
+{
+  "wsBrokerUri": "<ws_broker_uri>",
+  "httpBrokerUri": "<http_broker_uri>",
+  "username": "<username>",
+  "password": "<password>"
+}

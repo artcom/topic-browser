@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-PUBLIC_DIR="public"
+DIST_DIR="dist"
 ARTIFACTS_DIR="artifacts"
 
 echo "Building"
@@ -10,7 +10,7 @@ npm run build
 
 echo "Packaging"
 mkdir "${ARTIFACTS_DIR}"
-cd "${PUBLIC_DIR}"
+cd "${DIST_DIR}"
 echo {\"branch\": \"$TRAVIS_BRANCH\", \"commit\": \"$TRAVIS_COMMIT\", \"build\": $TRAVIS_BUILD_NUMBER} > build.json
 zip -r -9 "../${ARTIFACTS_DIR}/topic-browser-${TRAVIS_BRANCH}.zip" *
 tar czvf "../${ARTIFACTS_DIR}/topic-browser-${TRAVIS_BRANCH}.tar.gz" *

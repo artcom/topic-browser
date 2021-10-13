@@ -1,7 +1,5 @@
 node_modules
 npm-debug.log
-public/main.js
-public/main.js.map
 public/config.json
-public/build.json
+dist
 artifacts
