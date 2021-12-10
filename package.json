@@ -1,6 +1,6 @@
 {
   "name": "topic-browser",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "repository": "artcom/topic-browser",
   "license": "MIT",
   "scripts": {
