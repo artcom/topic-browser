@@ -1,6 +1,6 @@
 
 body {
-  font-family: "arial";
+  font-family: "verdana";
   color: #000000;
   text-decoration: none;
 }
@@ -11,10 +11,10 @@ a {
 }
 
 a:hover {
-  font-weight: bold;
+  text-decoration: underline;
 }
 a:active {
-  font-weight: bold;
+  text-decoration: underline;
 }
 
 .pointer:hover {
@@ -30,27 +30,9 @@ a:active {
 
 .topic-title-headline{
   font-size: 18px;
-}
-
-.row {
-  margin-left: 0;
-  margin-right: 0;
-}
-.row:before, .row:after {
-  content: ' ';
-  display: table;
-}
-.row:after {
-  clear: both;
-}
-.row .row {
-  margin-left: -12px;
-  margin-right: -12px;
-}
-
-
-.container-left {
-  margin-left: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0px 5px;
 }
 
 .icon-right {
@@ -61,19 +43,21 @@ a:active {
   display: flex;
   padding-top: 8px;
   padding-bottom: 8px;
+  border: 1px solid #dcdcdc;
+  margin: -1px 0 0 0;
 }
 
 .topic-row:nth-child(odd) {
-  background-color: #e3eff2;
+  background-color: #f2f2f2;
 }
 
 .topic-row:hover {
-  background-color: #c7e6ed;
+  background-color: #e0e0e0;
 }
 
 .topic-column {
   min-width: 7em;
-  margin-left: 10px;
+  margin: 0px 10px 0px 10px;
 }
 
 .confirm-cancel {
@@ -83,9 +67,13 @@ a:active {
 }
 
 .payload-column {
+  overflow: hidden;
   flex-grow: 1;
-  max-width: 87%;
-  padding-top: 0.15em;
+}
+
+.editor {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .button-column {
@@ -98,7 +86,6 @@ a:active {
 
 .tip {
   color: #b7b7b7;
-  margin-left: 20px;
 }
 
 .invalid {
@@ -115,7 +102,6 @@ a:active {
   position: relative;
   top:-3px;
   font-size: 30px;
-
 }
 
 .icon-load:before {
@@ -137,7 +123,7 @@ a:active {
 
 .icon-delete:before {
   content: '✕';
-  margin-right: 10px;
+  margin: 10px;
 }
 
 .rotate {
@@ -150,8 +136,8 @@ a:active {
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 pre {
-  margin: 0;
-  font-size: 14px;
+  margin: 2px 0px 0px 0px;
+  font-size: 16px;
 }
 
 .ace-github {

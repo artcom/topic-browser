@@ -14,8 +14,8 @@ export default class Editor extends React.Component {
     editor.setHighlightActiveLine(false)
     editor.setShowPrintMargin(false)
     editor.setFontSize(14)
-    editor.renderer.setShowGutter(false)
     editor.setOptions({ fontFamily: "monospace" })
+    editor.renderer.setShowGutter(false)
 
     if (this.props.focus) {
       editor.focus()

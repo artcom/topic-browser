@@ -6,7 +6,7 @@ import { levelsToTopic, topicToLevels } from "../topic"
 
 function TopicTitle({ topic }) {
   return (
-    <div className="row topic-title-headline">
+    <div className="topic-title-headline">
       { renderTopic(topic) }
     </div>
   )
@@ -15,7 +15,7 @@ function TopicTitle({ topic }) {
 function renderTopic(topic) {
   const root =
     <TopicLink topic="" key="root">
-      <div className="icon container-left icon-home" />
+      <div className="icon icon-home" />
     </TopicLink>
 
   const levels = topicToLevels(topic)

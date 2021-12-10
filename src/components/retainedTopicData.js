@@ -14,11 +14,11 @@ import {
 
 export default function RetainedTopicData(props) {
   return (
-    <ul>
+    <div>
       { renderPayloadRow(props) }
       { renderSubTopicRows(props) }
       { renderNewSubtopicRow(props) }
-    </ul>
+    </div>
   )
 }
 
