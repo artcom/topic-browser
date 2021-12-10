@@ -1,4 +1,5 @@
 /* eslint-disable import/no-commonjs */
+
 const webpack = require("webpack")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 
@@ -16,8 +17,7 @@ module.exports = (env, { mode }) => ({
   plugins: [
     mode === "production" && new CopyWebpackPlugin({
       patterns: [
-        { from: "public/index.html", to: "index.html" },
-        { from: "public/css/", to: "css/" }
+        { from: "public/", to: "." }
       ]
     }),
     new webpack.EnvironmentPlugin({
