@@ -1,6 +1,7 @@
 
 body {
   font-family: "verdana";
+  font-size: 14px;
   color: #000000;
   text-decoration: none;
 }
@@ -25,7 +26,8 @@ a:active {
 }
 
 .container-fixed {
-  margin: 50px;
+  min-width: 300px;
+  overflow: hidden;
 }
 
 .topic-title-headline{
@@ -56,8 +58,11 @@ a:active {
 }
 
 .topic-column {
-  min-width: 7em;
-  margin: 0px 10px 0px 10px;
+  min-width: 10em;
+  flex-shrink: 0;
+  margin-left: 10px;
+  margin-right: 5px;
+  box-sizing: border-box;
 }
 
 .confirm-cancel {
@@ -136,10 +141,23 @@ a:active {
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 pre {
-  margin: 2px 0px 0px 0px;
-  font-size: 16px;
+  padding: 1px 0px 3px 4px;
+  margin: 0px;
 }
 
-.ace-github {
+.editor-content {
+  margin-top: 1px;
+}
+
+.ace-clouds {
   background-color: transparent !important;
+  padding-bottom: 3px !important;
+}
+
+.ace_bracket {
+  margin: 0px 0 0 -1px !important;
+}
+
+.ace_cursor-layer {
+  padding-top: 1px !important;
 }

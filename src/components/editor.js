@@ -1,52 +1,44 @@
-import React from "react"
-import * as ace from "brace"
-import "brace/mode/json"
-import "brace/theme/github"
+import React, { useEffect, useState } from "react"
+import AceEditor from "react-ace"
 
-export default class Editor extends React.Component {
-  componentDidMount() {
-    const editor = ace.edit(this.props.name)
-    editor.setTheme("ace/theme/github")
-    editor.getSession().setMode("ace/mode/json")
-    editor.setValue(this.props.value)
-    editor.setAutoScrollEditorIntoView(true)
-    editor.setOption("maxLines", 1000)
-    editor.setHighlightActiveLine(false)
-    editor.setShowPrintMargin(false)
-    editor.setFontSize(14)
-    editor.setOptions({ fontFamily: "monospace" })
-    editor.renderer.setShowGutter(false)
+import "ace-builds/src-noconflict/mode-json"
+import "ace-builds/src-noconflict/theme-clouds"
 
-    if (this.props.focus) {
-      editor.focus()
-    }
+export default function Editor(props) {
+  const commands = [{
+    name: "commit",
+    bindKey: { win: "Shift-Enter", mac: "Shift-Enter" },
+    readOnly: false,
+    exec: () => props.onConfirm()
+  },
+  {
+    name: "cancel",
+    bindKey: { win: "Esc", mac: "Esc" },
+    readOnly: false,
+    exec: () => props.onCancel()
+  }]
 
-    editor.on("change", () => {
-      this.props.onChange(editor.getValue())
-    })
+  const [onMount, setOnMount] = useState(true)
+  useEffect(() => setOnMount(false), [])
 
-    const that = this
-
-    if (this.props.onConfirm) {
-      editor.commands.addCommand({
-        name: "commit",
-        bindKey: { win: "Shift-Enter", mac: "Shift-Enter" },
-        readOnly: false,
-        exec: () => that.props.onConfirm()
-      })
-    }
-
-    if (this.props.onCancel) {
-      editor.commands.addCommand({
-        name: "cancel",
-        bindKey: { win: "Esc", mac: "Esc" },
-        readOnly: false,
-        exec: () => that.props.onCancel()
-      })
-    }
-  }
-
-  render() {
-    return <div id={ this.props.name } />
-  }
+  return (
+    <div className="editor-content" >
+      <AceEditor
+        name={ props.name }
+        mode="json"
+        theme="clouds"
+        value={ onMount ? props.value : null }
+        onChange={ props.onChange }
+        width="100%"
+        height="100%"
+        maxLines={ 1000 }
+        fontSize={ 14 }
+        setOptions={ { fontFamily: "monospace", useWorker: false } }
+        showPrintMargin={ false }
+        showGutter={ false }
+        highlightActiveLine={ false }
+        focus={ props.focus }
+        commands={ commands } />
+    </div>
+  )
 }
