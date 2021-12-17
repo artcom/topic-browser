@@ -4,6 +4,7 @@ body {
   font-size: 14px;
   color: #000000;
   text-decoration: none;
+  margin: 5px 15px;
 }
 
 a {
@@ -34,7 +35,6 @@ a:active {
   font-size: 18px;
   white-space: nowrap;
   overflow: hidden;
-  margin: 0px 5px;
 }
 
 .icon-right {
