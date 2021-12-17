@@ -105,7 +105,7 @@ a:active {
 .icon-home:before {
   content: '⌂';
   position: relative;
-  top:-3px;
+  top:-5px;
   font-size: 30px;
 }
 
