@@ -33,7 +33,7 @@ export default function Editor(props) {
         height="100%"
         maxLines={ 1000 }
         fontSize={ 14 }
-        setOptions={ { fontFamily: "monospace", useWorker: false } }
+        setOptions={ { fontFamily: "courier", useWorker: false } }
         showPrintMargin={ false }
         showGutter={ false }
         highlightActiveLine={ false }

@@ -143,6 +143,8 @@ a:active {
 pre {
   padding: 1px 0px 3px 4px;
   margin: 0px;
+  font-family: courier;
+  line-height: 15px;
 }
 
 .editor-content {
@@ -152,6 +154,7 @@ pre {
 .ace-clouds {
   background-color: transparent !important;
   padding-bottom: 3px !important;
+  line-height: 15px !important;
 }
 
 .ace_bracket {
