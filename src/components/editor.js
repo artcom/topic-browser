@@ -18,8 +18,8 @@ export default function Editor(props) {
     exec: () => props.onCancel()
   }]
 
-  const [onMount, setOnMount] = useState(true)
-  useEffect(() => setOnMount(false), [])
+  const [isFirstRender, setIsFirstRender] = useState(true)
+  useEffect(() => setIsFirstRender(false), [])
 
   return (
     <div className="editor-content" >
@@ -27,7 +27,7 @@ export default function Editor(props) {
         name={ props.name }
         mode="json"
         theme="clouds"
-        value={ onMount ? props.value : null }
+        value={ isFirstRender ? props.value : null } // only propagate on first render
         onChange={ props.onChange }
         width="100%"
         height="100%"
