@@ -18,8 +18,7 @@ export default function Editor(props) {
     exec: () => props.onCancel()
   }]
 
-  const [isFirstRender, setIsFirstRender] = useState(true)
-  useEffect(() => setIsFirstRender(false), [])
+  const isFirstRender = useIsFirstRender()
 
   return (
     <div className="editor-content" >
@@ -41,4 +40,11 @@ export default function Editor(props) {
         commands={ commands } />
     </div>
   )
+}
+
+function useIsFirstRender() {
+  const [isFirstRender, setIsFirstRender] = useState(true)
+  useEffect(() => setIsFirstRender(false), [])
+
+  return isFirstRender
 }
