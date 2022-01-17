@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import AceEditor from "react-ace"
 
 import "ace-builds/src-noconflict/mode-json"
 import "ace-builds/src-noconflict/theme-clouds"
 
 export default function Editor(props) {
+  // the ref indirection is needed because commands below are only updated on mount
+  const confirmRef = useRef()
+  confirmRef.current = props.onConfirm
+
   const commands = [{
     name: "commit",
     bindKey: { win: "Shift-Enter", mac: "Shift-Enter" },
     readOnly: false,
-    exec: () => props.onConfirm()
+    exec: () => confirmRef.current()
   },
   {
     name: "cancel",
