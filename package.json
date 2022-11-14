@@ -8,11 +8,10 @@
     "stats": "webpack --profile --json --mode=production > stats.json",
     "build": "webpack --mode=production",
     "start": "npm run build && http-server ./dist/ -p ${PORT:-8080} -c 0",
-    "release": "./scripts/release",
     "watch": "webpack serve --mode=development"
   },
   "engines": {
-    "node": "16.13.1"
+    "node": "~18.12"
   },
   "dependencies": {
     "@artcom/mqtt-topping": "^3.1.2",
